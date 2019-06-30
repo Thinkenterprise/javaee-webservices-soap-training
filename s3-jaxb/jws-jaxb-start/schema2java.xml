@@ -1,0 +1,25 @@
+<project name="schema2java" default="build" basedir=".">
+
+	<!-- Definiert den ANT-Task für das JAXB-Compile -->
+	
+	<!-- Pfad auf Metro Installation -->
+	<property environment="env" />
+	<property name="metro.home" value="${env.METRO_HOME}" />
+
+	
+	<!-- Ant-Task für Java Compiler -->
+	<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask"> 
+		<!-- Bibliotheken der Metro Referenzimplementierung -->	
+		<classpath>
+			<fileset dir="${metro.home}" includes="lib/*.jar" />
+		</classpath>
+	</taskdef>
+
+	<!-- Compiler Target -->
+	<target name="build">
+		<xjc destdir="${basedir}/src/main/java" >
+			 <schema dir="${basedir}/res" includes="*.xsd" />
+		</xjc>
+	</target>
+
+</project>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jaxb:bindings jaxb:version="2.0"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xsi="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb 
+                      http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd">
+
+
+	<jaxb:bindings schemaLocation="ATMOrder.xsd">
+
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.openmes.jws.jaxb.compile.model"></jaxb:package>
+		</jaxb:schemaBindings>
+
+		<jaxb:bindings node="//xsi:complexType[@name='ATMOrderType']">
+			<jaxb:class name="ATMOrder">
+			</jaxb:class>
+			<jaxb:bindings node="//xsi:element[@name='Products']">
+				<jaxb:property name="product"></jaxb:property>
+			</jaxb:bindings>
+
+		</jaxb:bindings>
+
+	</jaxb:bindings>
+
+</jaxb:bindings>

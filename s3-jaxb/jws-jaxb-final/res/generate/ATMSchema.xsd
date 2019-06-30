@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://www.fi.de/atm/types" xmlns:tns="http://www.fi.de/atm/types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="ATMOrder" type="tns:ATMOrderType"/>
+
+  <xs:complexType name="ATMOrderType">
+    <xs:sequence>
+      <xs:element name="people" type="tns:PeopleGroupType"/>
+      <xs:element name="products" type="tns:ProductsType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PeopleGroupType">
+    <xs:sequence>
+      <xs:element name="person" type="tns:PersonType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PersonType">
+    <xs:sequence>
+      <xs:element name="city" type="xs:string" minOccurs="0"/>
+      <xs:element name="firstname" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:integer" minOccurs="0"/>
+      <xs:element name="lastname" type="xs:string" minOccurs="0"/>
+      <xs:element name="street" type="xs:string" minOccurs="0"/>
+      <xs:element name="zipcode" type="xs:integer" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ProductsType">
+    <xs:sequence>
+      <xs:element name="product" type="tns:ProductType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ProductType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:integer" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="price" type="tns:PriceType" minOccurs="0"/>
+      <xs:element name="seat" type="tns:ReservationType" minOccurs="0"/>
+      <xs:element name="showdate" type="xs:anySimpleType" minOccurs="0"/>
+      <xs:element name="showtime" type="xs:anySimpleType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PriceType">
+    <xs:sequence>
+      <xs:element name="currency" type="xs:string" minOccurs="0"/>
+      <xs:element name="value" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ReservationType">
+    <xs:sequence>
+      <xs:element name="row" type="xs:integer" minOccurs="0"/>
+      <xs:element name="seat" type="xs:integer" minOccurs="0"/>
+      <xs:element name="type" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ATMOrderConfirmationType">
+    <xs:sequence>
+      <xs:element name="charged" type="xs:boolean"/>
+      <xs:element name="confirmed" type="xs:boolean"/>
+      <xs:element name="invoiced" type="xs:boolean"/>
+      <xs:element name="participant" type="xs:string" minOccurs="0"/>
+      <xs:element name="productname" type="xs:string" minOccurs="0"/>
+      <xs:element name="reservation" type="tns:ConfirmationReservationType" minOccurs="0"/>
+      <xs:element name="showdate" type="xs:anySimpleType" minOccurs="0"/>
+      <xs:element name="showtime" type="xs:anySimpleType" minOccurs="0"/>
+      <xs:element name="ticketno" type="xs:integer" minOccurs="0"/>
+      <xs:element name="transactionid" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ConfirmationReservationType">
+    <xs:sequence>
+      <xs:element name="row" type="xs:integer" minOccurs="0"/>
+      <xs:element name="seat" type="xs:integer" minOccurs="0"/>
+      <xs:element name="type" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

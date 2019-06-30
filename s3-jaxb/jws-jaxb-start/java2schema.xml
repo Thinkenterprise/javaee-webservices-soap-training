@@ -1,0 +1,27 @@
+<project name="java2schema" default="build" basedir=".">
+
+	<!-- Definiert den ANT-Task für das JAXB-Generator -->
+		
+	<!-- Pfad auf Metro Installation -->
+	<property environment="env" />
+	<property name="metor.home" value="${env.METRO_HOME}" />
+
+	<!-- Bibliotheken der JAXB Referenzimplementierung -->	
+	<path id="classpath">
+		<fileset dir="${metor.home}" includes="lib/*.jar" />
+	</path>
+
+	
+	<!-- Definiert den ANT-Task für das JAXB-Compile -->
+	<taskdef name="schemagen" classname="com.sun.tools.jxc.SchemaGenTask">
+		<classpath refid="classpath" />
+	</taskdef>
+	
+	<!-- Ausführung der JAXB- Compilierung -->
+	<target name="build">
+		<schemagen srcdir="${basedir}/src/main/java/org/openmes/jws/jaxb/model" destdir="${basedir}/res/generate">
+			<schema namespace="http://www.fi.de/atm/types" file="ATMSchema.xsd"/>
+		</schemagen>	
+	</target>
+
+</project>

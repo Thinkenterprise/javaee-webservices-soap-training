@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns2:ATMOrder xmlns:ns2="http://www.fi.de/atm/types"><people><person><city>Kassel</city><firstname>Michael</firstname><lastname>Schaefer</lastname><street>Franzgraben</street></person></people><products><product/></products></ns2:ATMOrder>
