@@ -1,0 +1,30 @@
+<project name="wsdl2j-console" default="build" basedir=".">
+
+	<property environment="env" />
+	<property name="metro.home" value="${env.METRO_HOME}" />
+	<property name="src.dir"    value="${basedir}/src/main/java" />
+	<property name="bin.dir"    value="${basedir}/target/classes" />
+	
+	<!-- Bibliotheken der Referenzimplementierung -->	 
+	<path id="classpath">
+		<fileset dir="${metro.home}/lib" includes="*.jar" />		
+	</path>
+	
+	<!-- Ant Task wsimport definieren -->	
+	<taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+        <classpath refid="classpath"/> 
+    </taskdef>
+	
+	
+	<!-- Ausführung der Compilierung -->
+ 	<target name="build">
+		<wsimport 
+			verbose="false"
+			destdir="${bin.dir}"
+			sourcedestdir="${src.dir}" 
+			wsdl="res/ATMService.wsdl">
+			<binding dir="${basedir}/res" includes="*.xjb" />
+		</wsimport>
+			
+	</target>
+</project>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.fi.de/atm" 
+	xmlns:atm-types="http://www.fi.de/atm/types" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	name="ATMService"
+	targetNamespace="http://www.fi.de/atm">
+	
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://www.fi.de/atm">
+			<xsd:import schemaLocation="ATMOrder.xsd" 
+				namespace="http://www.fi.de/atm/types"/>
+			<xsd:import schemaLocation="ATMOrderConfirmation.xsd" 
+				namespace="http://www.fi.de/atm/types"/>
+		</xsd:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="ATMOrder">
+		<wsdl:part element="atm-types:ATMOrder" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ATMOrderConfirmation">
+		<wsdl:part element="atm-types:ATMOrderConfirmation" name="result" />
+	</wsdl:message>
+	
+	<wsdl:portType name="ATMServicePort">
+		<wsdl:operation name="bookTicket">
+			<wsdl:input message="tns:ATMOrder" />
+			<wsdl:output message="tns:ATMOrderConfirmation" />
+		</wsdl:operation>
+	</wsdl:portType>
+	
+	<wsdl:binding name="ATMServiceSOAP" type="tns:ATMServicePort">
+		 <soap:binding style="document"
+     				   transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="bookTicket">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	
+	<wsdl:service name="ATMService">
+		<wsdl:port binding="tns:ATMServiceSOAP" name="ATMServiceSOAP">
+			<soap:address location="http://localhost:8088/mockATMServiceSOAP"  />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

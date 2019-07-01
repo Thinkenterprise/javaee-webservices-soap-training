@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns2:ATMOrder xmlns:ns2="http://www.fi.de/atm/types"
+	xmlns:ns3="http://www.fi.de/atm">
+	<People>
+		<Person>
+			<firstname>Dave</firstname>
+			<lastname>Winer</lastname>
+			<street>555 Bailey</street>
+			<city>Silicon valley</city>
+		</Person>
+	</People>
+	<Products>
+		<Product />
+	</Products>
+</ns2:ATMOrder>
