@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://www.fi.de/atm"
+	xmlns:type="http://www.fi.de/atm/types"
+	targetNamespace="http://www.fi.de/atm">
+
+
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.fi.de/atm/types" schemaLocation="ATMOrder.xsd"></xsd:import>
+			<xsd:import namespace="http://www.fi.de/atm/types" schemaLocation="ATMOrderConfirmation.xsd"> </xsd:import>
+		</xsd:schema>
+	
+	</wsdl:types>	
+	
+
+	<wsdl:message name="BookTicket">
+		<wsdl:part element="type:ATMOrder" name="parameters"></wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="BookTicketResponse">
+		<wsdl:part  element="type:ATMOrderConfirmation" name="parameters"></wsdl:part>
+	</wsdl:message>
+	
+
+	<wsdl:portType name="AMTService">
+	
+		<wsdl:operation name="bookTicket">
+			<wsdl:input message="tns:BookTicket"></wsdl:input>
+			<wsdl:output message="tns:BookTicketResponse"></wsdl:output>
+		</wsdl:operation>
+	
+	</wsdl:portType>
+
+	<wsdl:binding name="AMTServicePortSOAP" type="tns:AMTService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="bookTicket">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />			
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+
+	<wsdl:service name="AMTService">
+
+		<wsdl:port name="AMTServicePort" binding="tns:AMTServicePortSOAP">
+			<soap:address location="http://localhost:8080/AMTServicePort" />
+		</wsdl:port>
+
+	</wsdl:service>
+
+
+
+
+
+
+</wsdl:definitions>
