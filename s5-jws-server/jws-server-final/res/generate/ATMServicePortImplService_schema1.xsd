@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://www.fi.de/atm/type" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.fi.de/atm">
+
+  <xs:import namespace="http://www.fi.de/atm" schemaLocation="ATMServicePortImplService_schema2.xsd"/>
+
+  <xs:element name="arg0" type="ns1:atmOrderType"/>
+
+  <xs:element name="return" type="ns1:atmOrderConfirmationType"/>
+</xs:schema>
+

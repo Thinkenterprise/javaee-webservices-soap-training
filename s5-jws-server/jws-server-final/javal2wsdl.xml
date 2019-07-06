@@ -1,0 +1,31 @@
+<project name="wsdl2j-console" default="build" basedir=".">
+
+	<property environment="env" />
+	<property name="metro.home" value="${env.METRO_HOME}" />
+	<property name="src.dir"    value="${basedir}/src/main/java" />
+	<property name="bin.dir"    value="${basedir}/target/classes" />
+	
+	<!-- Bibliotheken der Referenzimplementierung -->	 
+	<path id="classpath">
+		<fileset dir="${metro.home}/lib" includes="*.jar" />		
+	</path>
+	
+	<!-- Ant Task wsimport definieren -->	
+	<taskdef name="wsexport" classname="com.sun.tools.ws.ant.WsGen">
+        <classpath refid="classpath"/> 
+    </taskdef>
+	
+	<!-- Ausführung der Compilierung -->
+ 	<target name="build">
+		<wsexport 
+			verbose="false"
+			keep="true"
+			classpath="${bin.dir}"
+			genwsdl="true"
+			resourcedestdir="${basedir}/res/generate"
+			sei="org.openmes.jws.server.service.ATMServicePortImpl">
+					
+		</wsexport>
+			
+	</target>
+</project>
