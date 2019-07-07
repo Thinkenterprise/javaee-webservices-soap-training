@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:fi-atm="http://www.fi.de/atm/types" 
+    targetNamespace="http://www.fi.de/atm/types">
+	
+	<xsd:element name="ATMOrderError" type="fi-atm:ATMOrderErrorType" />
+	
+	<xsd:complexType name="ATMOrderErrorType">
+		<xsd:sequence>
+			<xsd:element name="msg" type="xsd:string" />
+			<xsd:element name="code" type="xsd:int" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

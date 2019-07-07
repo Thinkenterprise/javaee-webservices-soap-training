@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<xsd:schema 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:fi-atm="http://www.fi.de/atm/types" 
+    targetNamespace="http://www.fi.de/atm/types">
+
+  <xsd:element name="ATMOrder" type="fi-atm:ATMOrderType" />
+
+  <xsd:complexType name="ATMOrderType">
+    <xsd:sequence>                            
+      <xsd:element name="People" type="fi-atm:PeopleGroupType" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="Products" type="fi-atm:ProductsType" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="securetoken" type="xsd:token" />
+    </xsd:sequence>            
+  </xsd:complexType>
+
+  <xsd:complexType name="ProductsType">
+    <xsd:sequence>
+      <xsd:element name="Product" type="fi-atm:ProductType" minOccurs="1" maxOccurs="unbounded" />
+    </xsd:sequence>                     
+  </xsd:complexType> 
+
+  <xsd:complexType name="ProductType">     
+    <xsd:sequence>        
+      <xsd:element name="id" type="xsd:integer" />                       
+      <xsd:element name="name" type="xsd:string" />
+      <xsd:element name="showdate" type="xsd:date" />       
+      <xsd:element name="showtime" type="xsd:time" />     
+      <xsd:element name="Seat" type="fi-atm:ReservationType" />
+      <xsd:element name="Price" type="fi-atm:PriceType" />     
+    </xsd:sequence>                     
+  </xsd:complexType>
+
+  <xsd:complexType name="ReservationType">     
+    <xsd:sequence>        
+      <xsd:element name="row" type="xsd:integer" />       
+      <xsd:element name="seat" type="xsd:integer" />       
+      <xsd:element name="type" type="xsd:string" />     
+    </xsd:sequence>                     
+  </xsd:complexType>      
+
+  <xsd:complexType name="PriceType">     
+    <xsd:sequence>        
+      <xsd:element name="value" type="xsd:float" />       
+      <xsd:element name="currency" type="xsd:string" />     
+    </xsd:sequence>                     
+  </xsd:complexType>
+  
+  <xsd:complexType name="PeopleGroupType">
+    <xsd:sequence>
+    <xsd:element name="Person" type="fi-atm:PersonType" minOccurs="1" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>  
+
+  <xsd:complexType name="PersonType">     
+    <xsd:sequence>                         
+      <xsd:element name="id" type="xsd:integer" />
+      <xsd:element name="firstname" type="xsd:string" />       
+      <xsd:element name="lastname" type="xsd:string" />       
+      <xsd:element name="street" type="xsd:string" />       
+      <xsd:element name="zipcode" type="xsd:integer" />       
+      <xsd:element name="city" type="xsd:string" />     
+    </xsd:sequence>            
+  </xsd:complexType>  
+</xsd:schema>
