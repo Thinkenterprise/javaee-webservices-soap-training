@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jaxws:bindings jaxws:version="2.0"
+	xmlns:javaee="http://java.sun.com/xml/ns/javaee" 
+	xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema"
+	wsdlLocation="ATMService.wsdl"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/jaxws 
+                      http://java.sun.com/xml/ns/jaxws/wsdl_customizationschema_2_0.xsd">
+
+	
+		<jws:handler-chains xmlns:jws="http://java.sun.com/xml/ns/javaee">
+			<jws:handler-chain>
+				<jws:handler>
+					<jws:handler-class>
+						org.openmes.jws.handler.SOAPDebugHandler
+					</jws:handler-class>
+										
+				</jws:handler>
+				
+				<jws:handler>
+					<jws:handler-class>
+						org.openmes.jws.handler.LogicDebugHandler
+					</jws:handler-class>
+										
+				</jws:handler>
+				
+			</jws:handler-chain>
+		</jws:handler-chains>
+	
+
+</jaxws:bindings>
