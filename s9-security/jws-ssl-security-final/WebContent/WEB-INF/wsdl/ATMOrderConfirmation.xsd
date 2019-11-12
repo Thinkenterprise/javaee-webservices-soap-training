@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<xsd:schema
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:fi-atm="http://www.fi.de/atm/types" 
+    targetNamespace="http://www.fi.de/atm/types">
+
+  <xsd:element name="ATMOrderConfirmation" type="fi-atm:ATMOrderConfirmationType" />
+
+  <xsd:complexType name="ATMOrderConfirmationType">
+    <xsd:sequence>        
+      <xsd:element name="confirmations" type="fi-atm:ATMOrderConfirmation" minOccurs="1" maxOccurs="unbounded"/>
+   </xsd:sequence>                     
+  </xsd:complexType>
+  
+  <xsd:complexType name="ATMOrderConfirmation">
+    <xsd:sequence>        
+      <xsd:element name="transactionid" type="xsd:token" />
+      <xsd:element name="confirmed" type="xsd:boolean" />
+      <xsd:element name="charged" type="xsd:boolean" />
+      <xsd:element name="invoiced" type="xsd:boolean" />     
+      <xsd:element name="showdate" type="xsd:date" />       
+      <xsd:element name="showtime" type="xsd:time" />     
+      <xsd:element name="participant" type="xsd:string" />
+      <xsd:element name="productname" type="xsd:string" />
+      <xsd:element name="ticketno" type="xsd:integer" />
+      <xsd:element name="Reservation" type="fi-atm:ConfirmationReservationType" />
+   </xsd:sequence>                     
+  </xsd:complexType>
+
+  <xsd:complexType name="ConfirmationReservationType">     
+    <xsd:sequence>        
+      <xsd:element name="row" type="xsd:integer" />       
+      <xsd:element name="seat" type="xsd:integer" />       
+      <xsd:element name="type" type="xsd:string" />     
+    </xsd:sequence>                     
+  </xsd:complexType>      
+
+</xsd:schema>

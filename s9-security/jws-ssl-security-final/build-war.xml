@@ -1,0 +1,29 @@
+<project name="wsdl2j-console" default="build" basedir=".">
+
+	<!-- Environment Settings -->
+	<property environment="env" />
+	<property name="bin.dir" value="${basedir}/build/classes" />
+	<property name="res.dir" value="${basedir}/res" />
+	<property name="web.dir" value="${basedir}/webcontent" />
+
+	<!-- Build WAR File -->
+	<!--
+	<target name="build">
+		<war destfile="${res.dir}/amtservice.war" needxmlfile="false">
+			<classes dir="${bin.dir}" />
+		</war>
+	</target>
+
+	-->
+
+	<target name="build">
+		<war destfile="${res.dir}/amtservice.war" webxml="${web.dir}/WEB-INF/web.xml">
+			<fileset dir="${web.dir}">
+				<include name="**/*.*" />
+			</fileset>
+			<classes dir="${bin.dir}" />
+		</war>
+	</target>
+
+
+</project>
