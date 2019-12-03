@@ -5,4 +5,14 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb 
                       http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd">
 
+
+	<jaxb:bindings schemaLocation="ATMOrder.xsd">
+
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.openmes.jws.jaxb.compile.model"></jaxb:package>
+		</jaxb:schemaBindings>
+
+	</jaxb:bindings>
+
+
 </jaxb:bindings>
