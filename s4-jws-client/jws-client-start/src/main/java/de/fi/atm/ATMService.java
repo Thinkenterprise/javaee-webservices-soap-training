@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "ATMService", targetNamespace = "http://www.fi.de/atm", wsdlLocation = "file:/C:/environment/source/jax-ws/java-ee-jax-ws-training/s4-jws-client-sample/jws-client-start/res/ATMService.wsdl")
+@WebServiceClient(name = "ATMService", targetNamespace = "http://www.fi.de/atm", wsdlLocation = "file:/C:/environment/source/java-ee-webservices-soap/javaee-webservices-soap-training/s4-jws-client/jws-client-start/res/ATMService.wsdl")
 public class ATMService
     extends Service
 {
@@ -30,7 +30,7 @@ public class ATMService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/C:/environment/source/jax-ws/java-ee-jax-ws-training/s4-jws-client-sample/jws-client-start/res/ATMService.wsdl");
+            url = new URL("file:/C:/environment/source/java-ee-webservices-soap/javaee-webservices-soap-training/s4-jws-client/jws-client-start/res/ATMService.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
