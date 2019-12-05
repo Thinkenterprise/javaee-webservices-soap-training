@@ -1,4 +1,4 @@
-package org.openmes.jws.service.test;
+package org.openmes.jws.service;
 
 import javax.xml.namespace.QName;
 import javax.xml.soap.Detail;
@@ -7,7 +7,7 @@ import javax.xml.soap.SOAPFactory;
 import javax.xml.soap.SOAPFault;
 
 
-public class TestModelHelper {
+public class SoapFaultHelper {
 
 	
 public static SOAPFault createFault(String message, String code, String actor) {

@@ -82,8 +82,8 @@
 				</dependencies>
 				<executions>
 					<execution>
-						<id>generate-sources</id>
-						<phase>generate-sources</phase>
+						<id>compile</id>
+						<phase>compile</phase>
 						<goals>
 							<goal>run</goal>
 						</goals>
