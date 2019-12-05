@@ -14,9 +14,6 @@
 				namespace="http://www.fi.de/atm/types"/>
 			<xsd:import schemaLocation="ATMOrderConfirmation.xsd" 
 				namespace="http://www.fi.de/atm/types"/>
-			<xsd:import schemaLocation="ATMOrderError.xsd" 
-				namespace="http://www.fi.de/atm/types"/>
-			</xsd:schema>
 	</wsdl:types>
 	
 	<wsdl:message name="ATMOrder">
@@ -26,15 +23,11 @@
 		<wsdl:part element="atm-types:ATMOrderConfirmation" name="result" />
 	</wsdl:message>
 	
-	<wsdl:message name="ATMOrderError">
-		<wsdl:part element="atm-types:ATMOrderError" name="result" />
-	</wsdl:message>
 		
 	<wsdl:portType name="ATMServicePort">
 		<wsdl:operation name="bookTicket">
 			<wsdl:input message="tns:ATMOrder" />
 			<wsdl:output message="tns:ATMOrderConfirmation" />
-			<wsdl:fault name="ATMOrderFault" message="tns:ATMOrderError"></wsdl:fault>
 		</wsdl:operation>
 	</wsdl:portType>
 	
@@ -49,10 +42,6 @@
 			<wsdl:output>
 				<soap:body use="literal" />
 			</wsdl:output>
-			
-			<wsdl:fault name="ATMOrderFault">
-				<soap:fault name="ATMOrderFault" use="literal"/>
-			</wsdl:fault>
 			
 		</wsdl:operation>
 	</wsdl:binding>

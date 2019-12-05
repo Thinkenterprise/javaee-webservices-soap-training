@@ -82,7 +82,7 @@
 				</dependencies>
 				<executions>
 					<execution>
-						<id>generate-sources</id>
+						<id>generate-resources</id>
 						<phase>generate-resources</phase>
 						<goals>
 							<goal>run</goal>
