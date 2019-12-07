@@ -2,8 +2,8 @@
 
 	<property environment="env" />
 	<property name="metro.home" value="${env.METRO_HOME}" />
-	<property name="src.dir"    value="${basedir}/src" />
-	<property name="bin.dir"    value="${basedir}/build/classes" />
+	<property name="src.dir"    value="${basedir}/src/main/java" />
+	<property name="bin.dir"    value="${basedir}/target/classes" />
 	
 	<!-- Bibliotheken der Referenzimplementierung -->	 
 	<path id="classpath">
