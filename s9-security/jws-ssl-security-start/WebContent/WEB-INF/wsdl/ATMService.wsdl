@@ -4,7 +4,6 @@
 	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	name="ATMService" targetNamespace="http://www.fi.de/atm">
 
-	<!-- Das ist die Orginal WSDL -->
 	<wsdl:types>
 		<xsd:schema targetNamespace="http://www.fi.de/atm">
 			<xsd:import schemaLocation="ATMOrder.xsd" namespace="http://www.fi.de/atm/types" />
@@ -20,7 +19,6 @@
 		<wsdl:part element="atm-types:ATMOrderConfirmation" name="result" />
 	</wsdl:message>
 
-	<!-- Das ist die Orginal WSDL -->
 	<wsdl:portType name="ATMServicePort">
 		<wsdl:operation name="bookTicket">
 			<wsdl:input message="tns:ATMOrder" />
