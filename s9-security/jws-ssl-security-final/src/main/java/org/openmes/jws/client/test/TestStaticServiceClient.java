@@ -1,26 +1,16 @@
 package org.openmes.jws.client.test;
 
-import java.net.URL;
-import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.util.concurrent.Future;
 
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-import javax.xml.ws.BindingProvider;
-import javax.xml.ws.Response;
-import javax.xml.ws.soap.SOAPBinding;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-
 
 import de.fi.atm.ATMService;
 import de.fi.atm.ATMServicePort;
